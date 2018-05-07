@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+<div class="text-center">
+<img src="https://static.punknews.org/images/frontpage/fp-1274797366.webp" class="img-fluid">
+</div>
+
+    <a href="/stylists/new" class="btn btn-primary btn-lg">Add new stylist</a>
+<br>
+<h3>list of current stylists:</3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var stylist in Model)
+        {
+            <tr>
+                <td><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></td>
+
+            <td><a href="/stylists/@stylist.GetId()/delete" class="btn btn-danger">x</a></td>
+          </tr>
+
+        }
+    </tbody>
+</table>

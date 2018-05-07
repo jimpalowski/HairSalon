@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+<h1>@Model["stylist"].GetName()'s Appointments</h1>
+
+<a href="/stylists/@Model["stylist"].GetId()/clients/new" class="btn btn-warning btn-lg">Add new client</a>
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Appointment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var client in @Model["clients"])
+      {
+      <tr>
+          <td><a href="/clients/@client.GetId()">@client.GetName()</a></td>
+          <td>@client.GetRawAppt() <td><a href="/clients/@client.GetId()/delete" class="btn btn-danger">x</a></td></td>
+      </tr>
+      }
+
+   </tbody>
+</table>
+<a href="/" class="btn btn-danger btn-lg" role="button">Return Home</a>
